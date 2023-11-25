@@ -1,6 +1,6 @@
 # @Author: Luning Wang
 
-from utils.encoder_modeling import BaseEncoder, BertEncoder
+from utils.encoder_modeling import BaseEncoder, BertEncoder, BaichuanEncoder
 from utils.data_utils import load_raw_data
 from transformers import AutoTokenizer, AutoModel, AutoModelForCausalLM
 from datasets import load_dataset
@@ -27,9 +27,14 @@ if __name__ == '__main__':
     
     # construct encoder model
     print('constructing encoder model ...')
-    tokenizer = AutoTokenizer.from_pretrained(args.model)
-    model = AutoModel.from_pretrained(args.model)
-    encoder = BertEncoder(model, tokenizer)
+    if 'bert' in args.model.lower():
+        tokenizer = AutoTokenizer.from_pretrained(args.model)
+        model = AutoModel.from_pretrained(args.model)
+        encoder = BertEncoder(model, tokenizer)
+    elif 'baichuan' in args.model.lower():
+        model = AutoModelForCausalLM.from_pretrained(args.model, device_map="auto", torch_dtype=torch.float16, trust_remote_code=True)
+        tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False, trust_remote_code=True)
+        encoder = BaichuanEncoder(model, tokenizer)
 
     
     # load dataset
@@ -52,7 +57,7 @@ if __name__ == '__main__':
     np.save(query_save_path, encoded_queries)
 
     info = {
-        'model': args.model,
+        'model': args.model.split('/')[-1],
         'embed_dim': embed_dim,
         'num_items': num_items,
         'additional_info': args.additional_info

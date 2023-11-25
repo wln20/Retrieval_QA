@@ -79,14 +79,14 @@ if __name__ == '__main__':
     parser.add_argument('--name', default='bert', help='Name of the directory containing saved embeddings')
     parser.add_argument('--num_samples', default=30, help='The number of sample points of top-k')
     parser.add_argument('--verbose', action='store_true', help='Whether to mark some key points in the result graph')
-    parser.add_argument('--checkpoints', default=[0.5,0.8,0.9], help='The key points to mark at verbose mode')
+    parser.add_argument('--checkpoints', default='[0.5,0.8,0.9]', help='The key points to mark at verbose mode')
 
     args = parser.parse_args()
 
     
     docs_cache_path = os.path.join('embeddings', args.name, 'doc_embeddings.npy')
     queries_cache_path = os.path.join('embeddings', args.name, 'query_embeddings.npy')
-    result_save_path = os.path.join('results', args.name, 'eval_result.jpg')
+    result_save_path = os.path.join('results', args.name)
     os.makedirs(result_save_path, exist_ok=True)
     print(f'Results would be saved to: {result_save_path}.')
     
@@ -106,7 +106,7 @@ if __name__ == '__main__':
         accs.append(acc)
     
     draw(top_ks, accs, baselines, num_samples=args.num_samples, model_name=info['model'], \
-        result_save_path=result_save_path, verbose=args.verbose, checkpoints=args.checkpoints)
+        result_save_path=result_save_path, verbose=args.verbose, checkpoints=eval(args.checkpoints))
 
     print('Results saved.')
 
