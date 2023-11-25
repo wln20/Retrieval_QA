@@ -45,3 +45,5 @@ from datasets import load_dataset
 dataset = load_dataset('lnwang/retrieval_qa')
 ```
 
+### Trouble Shooting
+1. If you're using baichuan model and encounter this error: `AttributeError: 'BaichuanTokenizer' object has no attribute 'sp_model'`，the following solution may help: https://github.com/baichuan-inc/Baichuan2/issues/204#issuecomment-1756867868
