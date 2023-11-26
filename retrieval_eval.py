@@ -37,13 +37,13 @@ def encoder_evaluator(embed_dim=768, top_k=5, docs_cache_path=None, queries_cach
     return acc
 
 
-def draw(top_ks, accs, baselines, num_samples, model_name, result_save_path, verbose=False, checkpoints = [0.2,0.5,0.8]):
+def draw(top_ks, accs, baselines, num_samples, model_name, subset, result_save_path, verbose=False, checkpoints = [0.2,0.5,0.8]):
     """
     verbose: whether to draw the details on the graph
     checkpoints: the accs that need to be checked
     """
     plt.figure(figsize=(num_samples//2, 4))
-    plt.title('acc vs. top_k')
+    plt.title(f'acc vs. top_k, subset={subset}')
     plt.xlabel('top_k')
     plt.ylabel('acc')
     plt.xlim(0, len(top_ks))
@@ -76,7 +76,7 @@ def draw(top_ks, accs, baselines, num_samples, model_name, result_save_path, ver
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--name', default='bert', help='Name of the directory containing saved embeddings')
+    parser.add_argument('--name', default='bert_en', help='Name of the directory containing saved embeddings')
     parser.add_argument('--num_samples', default=30, help='The number of sample points of top-k')
     parser.add_argument('--verbose', action='store_true', help='Whether to mark some key points in the result graph')
     parser.add_argument('--checkpoints', default='[0.5,0.8,0.9]', help='The key points to mark at verbose mode')
@@ -105,7 +105,7 @@ if __name__ == '__main__':
              docs_cache_path=docs_cache_path, queries_cache_path=queries_cache_path)
         accs.append(acc)
     
-    draw(top_ks, accs, baselines, num_samples=args.num_samples, model_name=info['model'], \
+    draw(top_ks, accs, baselines, num_samples=args.num_samples, subset=info['subset'], model_name=info['model'], \
         result_save_path=result_save_path, verbose=args.verbose, checkpoints=eval(args.checkpoints))
 
     print('Results saved.')

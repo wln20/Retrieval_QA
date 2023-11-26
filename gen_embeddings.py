@@ -14,11 +14,14 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', default='bert-base-uncased', help='The retrieval encoder model.')
     parser.add_argument('--load_raw', action='store_true', help='Load the local .jsonl dataset file if specified.')
+    parser.add_argument('--subset', default='en', choices=['en', 'zh_cn', 'zh_tw'])
     parser.add_argument('--save_name', default='bert', help='The generated embeddings would be saved to `./embeddings/[save_name]`')
     parser.add_argument('--additional_info', default='', help='You could add some additional information, and let it be saved to `info.json`')
     args = parser.parse_args()
 
-    save_path = os.path.join('embeddings', args.save_name)
+    save_path = os.path.join('embeddings', args.save_name + f'_{args.subset}')
+    print(f'The generated embeddings would be saved to {save_path}')
+
     os.makedirs(save_path, exist_ok=True)
     # three files would be saved to `save_path`
     doc_save_path = os.path.join(save_path, 'doc_embeddings.npy')
@@ -40,11 +43,11 @@ if __name__ == '__main__':
     # load dataset
     print('loading dataset ...')
     if args.load_raw:
-        raw_doc_path = './raw_data/docs_countries.jsonl'
-        raw_query_path = './raw_data/queries_countries.jsonl'
+        raw_doc_path = f'./raw_data/{args.subset}/docs_countries_{args.subset}.jsonl'
+        raw_query_path = f'./raw_data/{args.subset}/queries_countries_{args.subset}.jsonl'
         docs, queries = load_raw_data(raw_doc_path, raw_query_path)
     else:
-        dataset = load_dataset('lnwang/retrieval_qa')
+        dataset = load_dataset('lnwang/retrieval_qa', name=args.subset)
         docs, queries = dataset['test']['doc'], dataset['test']['query']
 
     # encode and save
@@ -59,6 +62,7 @@ if __name__ == '__main__':
     info = {
         'model': args.model.split('/')[-1],
         'embed_dim': embed_dim,
+        'subset': args.subset,
         'num_items': num_items,
         'additional_info': args.additional_info
     }
