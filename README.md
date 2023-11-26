@@ -53,11 +53,22 @@ Now we support English(en), Simplified Chinese(zh_cn), Traditional Chinese(zh_tw
   conda activate rqa
   pip install -r requirements.txt
   ```
-#### Example usage
-The dataset is now available on 🤗 Huggingface, you can conveniently use it in python with 🤗 Datasets:
+#### Load dataset
+The dataset is available on 🤗 Huggingface, you can conveniently use it in python with 🤗 Datasets:
 ```python
 from datasets import load_dataset
-dataset = load_dataset('lnwang/retrieval_qa', name='en')
+dataset_en = load_dataset('lnwang/retrieval_qa', name='en')
+# dataset_zh_cn = load_dataset('lnwang/retrieval_qa', name='zh_cn')
+# dataset_zh_tw = load_dataset('lnwang/retrieval_qa', name='zh_tw')
 ```
+Now we support three languages: English(en), Simplified-Chinese(zh_cn), Traditional-Chinese(zh_tw). You can specify the `name` argument in `load_dataset()` to get the corresponding subset.
+
+Note that we also provide the raw-data <a href='https://github.com/wln20/Retrieval_QA/tree/master/raw_data'>in this repository</a>, in `.jsonl` format, and the code of loading it has also been implemented in `get_embeddings.py`. But we recommend you to use `load_dataset()` as it's quite simple and convenient.  
+
+#### Example usage
+The pipeline could be broken into 2 steps:
+- Step1: Use a encoder model to encode the data(docs&queries) into embeddings, and cache them for retrieval later.
+- Step2: Use FAISS to do retrieval on the generated embeddings and
+
 ### Trouble Shooting
 1. If you're using baichuan model and encounter this error: `AttributeError: 'BaichuanTokenizer' object has no attribute 'sp_model'`，the following solution may help: https://github.com/baichuan-inc/Baichuan2/issues/204#issuecomment-1756867868
