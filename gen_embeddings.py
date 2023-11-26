@@ -38,6 +38,8 @@ if __name__ == '__main__':
         model = AutoModelForCausalLM.from_pretrained(args.model, device_map="auto", torch_dtype=torch.float16, trust_remote_code=True)
         tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False, trust_remote_code=True)
         encoder = BaichuanEncoder(model, tokenizer)
+    else:
+        raise NotImplementedError
 
     
     # load dataset
