@@ -133,7 +133,8 @@ Take `bert-base-uncased` as an example encoder:
   + top_k=37 ~ acc=0.8, true_acc=0.781
   + top_k=79 ~ acc=0.9, true_acc=0.898
   ```
-  
+
+More detailed instructions would be implemented in the future.
   
 # Results
 Some evaluation results are presented here:
