@@ -36,12 +36,14 @@ class BaichuanEncoder(BaseEncoder):
         return (encoded_docs, self.num_items, self.embed_dim)      
 
 
-class SentenceBertEncoder(BaseEncoder):
+class SBertEncoder(BaseEncoder):
     def __init__(self, model, tokenizer) -> None:
         super().__init__(model, tokenizer)
     
     def encode(self, raw_txt):
-        pass
-            
+        encoded_docs = self.model.encode(raw_txt)
+        self.num_items = encoded_docs.shape[0]
+        self.embed_dim = encoded_docs.shape[1]    
+        return (encoded_docs, self.num_items, self.embed_dim)         
     
 

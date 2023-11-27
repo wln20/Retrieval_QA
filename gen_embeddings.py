@@ -1,8 +1,9 @@
 # @Author: Luning Wang
 
-from utils.encoder_modeling import BaseEncoder, BertEncoder, BaichuanEncoder
+from utils.encoder_modeling import BertEncoder, BaichuanEncoder, SBertEncoder
 from utils.data_utils import load_raw_data
 from transformers import AutoTokenizer, AutoModel, AutoModelForCausalLM
+from sentence_transformers import SentenceTransformer
 from datasets import load_dataset
 import numpy as np
 import torch
@@ -13,6 +14,7 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', default='bert-base-uncased', help='The retrieval encoder model.')
+    parser.add_argument('--is_sbert', action='store_true', help='Whether the model is a kind of sentence transformer')
     parser.add_argument('--load_raw', action='store_true', help='Load the local .jsonl dataset file if specified.')
     parser.add_argument('--subset', default='en', choices=['en', 'zh_cn', 'zh_tw'])
     parser.add_argument('--save_name', default='bert', help='The generated embeddings would be saved to `./embeddings/[save_name]`')
@@ -38,8 +40,12 @@ if __name__ == '__main__':
         model = AutoModelForCausalLM.from_pretrained(args.model, device_map="auto", torch_dtype=torch.float16, trust_remote_code=True)
         tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False, trust_remote_code=True)
         encoder = BaichuanEncoder(model, tokenizer)
+    elif args.is_sbert:
+        model = SentenceTransformer(args.model)
+        encoder = SBertEncoder(model)
     else:
         raise NotImplementedError
+        
 
     
     # load dataset
