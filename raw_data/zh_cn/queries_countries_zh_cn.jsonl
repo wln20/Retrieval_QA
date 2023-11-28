@@ -22,7 +22,7 @@
 {"country": "Bosnia and Herzegovina", "query": "在1992年宣布独立之前，有哪些重要的历史事件塑造了波斯尼亚和黑塞哥维那的历史？"}
 {"country": "Botswana", "query": "博茨瓦纳的主要经济增长来源是什么，它对该国的发展有什么影响？"}
 {"country": "Brazil", "query": "从文化、经济和人口方面，巴西今天以何种特点闻名？"}
-{"country": "Brunei", "query": "在作为一支强大的贸易国家时，哪些主要商品对文莱经济做出了贡献？"}
+{"country": "Brunei", "query": "作为一个强大的贸易国家，哪些主要商品对文莱经济做出了贡献？"}
 {"country": "Bulgaria", "query": "哪些重要的历史事件影响了保加利亚的发展，它们对今天的文化和身份产生了什么影响？"}
 {"country": "Burkina Faso", "query": "Burkina Faso有哪些文化和历史景点呢？"}
 {"country": "Burundi", "query": "自1962年布隆迪独立以来，有哪些事件导致了政治不稳定、内战和种族屠杀的发生？"}
@@ -46,7 +46,7 @@
 {"country": "Czech Republic", "query": "是什么重大历史事件导致了捷克共和国作为一个独立的国家的形成？"}
 {"country": "Denmark", "query": "在16世纪丹麦国王克里斯蒂安四世统治期间，发生了哪个重要事件？"}
 {"country": "Djibouti", "query": "历史上，哪些帝国曾统治过现在的吉布提地区？"}
-{"country": "Dominica", "query": "“帝国金刚鹦鹉对多米尼加生态系统的意义是什么？为什么它处于极度濒危状态？”"}
+{"country": "Dominica", "query": "帝国金刚鹦鹉对多米尼加生态系统的意义是什么？为什么它处于极度濒危状态？"}
 {"country": "Dominican Republic", "query": "多米尼加共和国的历史是什么，它如何影响了它作为一个受欢迎的旅游目的地的现状？"}
 {"country": "Ecuador", "query": "自从1822年脱离西班牙独立以来，厄瓜多尔面临了哪些挑战？"}
 {"country": "Egypt", "query": "自从20世纪获得英国统治下的独立以来，埃及在工业、技术和旅游方面取得了哪些重大进展？"}
@@ -54,7 +54,7 @@
 {"country": "Equatorial Guinea", "query": "赤道几内亚大多数人口的贫困状况和基本资源的获取情况如何？"}
 {"country": "Eritrea", "query": "在从埃塞俄比亚争取独立的斗争中，厄立特里亚面临了哪些挑战？"}
 {"country": "Estonia", "query": "爱沙尼亚以哪些技术进步而闻名？"}
-{"country": "Eswatini", "query": "在Eswatini独特的野生动物中，黑犀牛的意义是什么？"}
+{"country": "Eswatini", "query": "在斯威士兰独特的野生动物中，黑犀牛的意义是什么？"}
 {"country": "Ethiopia", "query": "阿克苏姆王国在埃塞俄比亚历史上的意义是什么？"}
 {"country": "Fiji", "query": "斐济文化中有哪些传统元素至今仍在实践中？"}
 {"country": "Finland", "query": "芬兰最近几年取得了哪些值得注意的成就，它们如何促进了该国的繁荣？"}
@@ -65,7 +65,7 @@
 {"country": "Germany", "query": "普鲁士在19世纪德国统一国家的出现中扮演了什么角色？"}
 {"country": "Ghana", "query": "“Gold Coast”这个名字的意义是什么？哪些民族居住在这个地区？"}
 {"country": "Greece", "query": "自从1821年获得独立摆脱奥斯曼帝国统治以来，希腊经历了哪些重要的政治和社会变革？"}
-{"country": "Grenada", "query": "在格林纳达，肉豆蔻具有重要的意义，并且在该国的国旗中得到了体现。肉豆蔻是格林纳达的主要出口产品之一，也是该国的国民经济支柱之一。因此，肉豆蔻被视为格林纳达的象征之一。在国旗中，肉豆蔻被描绘为一个大的红色圆圈，象征着格林纳达的太阳，圆圈中心有一颗黄色五角星，代表着该国的首都圣乔治。而圆圈周围的12颗星星分别代表着格林纳达的12个行政区域。"}
+{"country": "Grenada", "query": "肉豆蔻对格林纳达有什么意义，它在该国国旗上是如何表现出来的？"}
 {"country": "Guatemala", "query": "尽管历史动荡不安，但是哪些文化景点和产业帮助了危地马拉繁荣发展呢？"}
 {"country": "Guinea", "query": "艾哈迈德·塞古·图雷在几内亚独立斗争中扮演了什么角色？"}
 {"country": "Guinea-Bissau", "query": "几内亚比绍的历史是怎样的，它如何影响了该国目前的政治和经济状况？"}
@@ -94,7 +94,7 @@
 {"country": "Latvia", "query": "拉脱维亚是如何走向独立的？自1991年重获独立以来，该国经历了哪些重大变化？"}
 {"country": "Lebanon", "query": "在黎巴嫩的历史上，有哪些历史帝国和文明统治过这个国家？"}
 {"country": "Lesotho", "query": "自1966年获得独立以来，莱索托面临了哪些挑战？"}
-{"country": "Liberia", "query": "利比里亚于1847年获得独立的意义是什么？该国的历史对其当前重建经济和加强民主机构的努力产生了什么影响？作为一名中文专家，我将这段英文翻译成标准而自然的中文：利比里亚在1847年获得独立的意义是什么？该国的历史对其当前努力重建经济和加强民主机构产生了什么影响？"}
+{"country": "Liberia", "query": "利比里亚在1847年获得独立的意义是什么？该国的历史如何影响其目前重建经济和加强民主制度的努力？"}
 {"country": "Libya", "query": "在利比亚的历史中，卡扎菲上校扮演了什么角色？"}
 {"country": "Liechtenstein", "query": "列支敦士登的经济繁荣主要得益于哪些主要产业？"}
 {"country": "Lithuania", "query": "立陶宛成为第一个从苏联宣布独立的苏联共和国的意义是什么？"}
@@ -116,7 +116,7 @@
 {"country": "Montenegro", "query": "有哪些文化影响塑造了黑山共和国多元化的文化？"}
 {"country": "Morocco", "query": "摩洛哥以哪些令人惊叹的建筑和充满活力的城市而闻名？"}
 {"country": "Mozambique", "query": "莫桑比克内战持续了多久？自内战结束以来，该国在经济发展和民主方面取得了哪些进展？"}
-{"country": "Myanmar", "query": "自2011年过渡为文职政府以来，缅甸（前称缅甸）进行了哪些重要的政治和经济改革？"}
+{"country": "Myanmar", "query": "自2011年过渡为文职政府以来，缅甸进行了哪些重要的政治和经济改革？"}
 {"country": "Namibia", "query": "纳米比亚多样化的地形和文化融合在其历史和现状作为民主共和国中的意义是什么？"}
 {"country": "Nauru", "query": "自1968年独立以来，瑙鲁面临了哪些挑战？"}
 {"country": "Nepal", "query": "什么事件导致尼泊尔在2008年成为联邦民主共和国？"}
@@ -126,7 +126,7 @@
 {"country": "Niger", "query": "尼日尔有哪些自然资源？"}
 {"country": "Nigeria", "query": "尼日利亚在历史上面临了哪些挑战？这些挑战对该国的发展和增长产生了什么影响？"}
 {"country": "North Korea", "query": "作为一个共产主义国家，朝鲜历史上面临着哪些挑战，这些挑战对其与世界其他国家的隔绝有何影响？"}
-{"country": "North Macedonia (formerly Macedonia)", "query": "有哪些历史帝国曾统治过北马其顿（前马其顿）？"}
+{"country": "North Macedonia", "query": "有哪些历史帝国曾统治过北马其顿（前马其顿）？"}
 {"country": "Norway", "query": "挪威因其惊人的美丽而声名远扬，有哪些自然特征是造就这一声誉的呢？"}
 {"country": "Oman", "query": "16世纪驱逐葡萄牙人离开阿曼的阿曼统治者名字是什么？"}
 {"country": "Pakistan", "query": "巴基斯坦地区在历史上曾由哪些帝国和王朝统治过？"}
@@ -172,7 +172,7 @@
 {"country": "Tajikistan", "query": "自1991年独立以来，塔吉克斯坦面临了哪些挑战？"}
 {"country": "Tanzania", "query": "坦桑尼亚以哪些自然奇观而闻名？"}
 {"country": "Thailand", "query": "在20世纪，泰国发生了哪些重大的政治变革？"}
-{"country": "Timor-Leste (formerly East Timor)", "query": "1999年的公投在东帝汶（Timor-Leste）产生了哪些结果？自那以后，这个国家的进展如何？"}
+{"country": "Timor-Leste", "query": "1999年的公投在东帝汶产生了哪些结果？自那以后，这个国家的进展如何？"}
 {"country": "Togo", "query": "在殖民前，哪些民族居住在多哥地区？"}
 {"country": "Tonga", "query": "汤加的君主制历史是什么，它对该国的身份和独立产生了什么影响？"}
 {"country": "Trinidad and Tobago", "query": "特立尼达和多巴哥的经济由哪些关键行业组成？"}
