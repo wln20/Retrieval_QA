@@ -37,7 +37,7 @@ class BaichuanEncoder(BaseEncoder):
 
 
 class SBertEncoder(BaseEncoder):
-    def __init__(self, model, tokenizer) -> None:
+    def __init__(self, model, tokenizer=None) -> None:
         super().__init__(model, tokenizer)
     
     def encode(self, raw_txt):
