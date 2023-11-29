@@ -46,14 +46,11 @@ if __name__ == '__main__':
     else:
         raise NotImplementedError
         
-
-    
     # load dataset
     print('loading dataset ...')
     if args.load_raw:
-        raw_doc_path = f'./raw_data/{args.subset}/docs_countries_{args.subset}.jsonl'
-        raw_query_path = f'./raw_data/{args.subset}/queries_countries_{args.subset}.jsonl'
-        docs, queries = load_raw_data(raw_doc_path, raw_query_path)
+        raw_path = f'./raw_data/{args.subset}/data_{args.subset}.jsonl'
+        docs, queries = load_raw_data(raw_path)
     else:
         dataset = load_dataset('lnwang/retrieval_qa', name=args.subset)
         docs, queries = dataset['test']['doc'], dataset['test']['query']
