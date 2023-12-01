@@ -24,7 +24,7 @@ if __name__ == '__main__':
     
     docs_cache_path = os.path.join('./embeddings/retrieval_embeddings', args.name, 'doc_embeddings.npy')
     queries_cache_path = os.path.join('./embeddings/retrieval_embeddings', args.name, 'query_embeddings.npy')
-    result_save_path = os.path.join('./embeddings/retrieval_results', args.name)
+    result_save_path = os.path.join('./results/retrieval_results', args.name)
     os.makedirs(result_save_path, exist_ok=True)
     print(f'Results would be saved to: {result_save_path}.')
     
