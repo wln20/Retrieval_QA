@@ -50,7 +50,7 @@ We first utilize an encoder to encode the raw docs and queries into embeddings. 
 For each query, we use FAISS to find the top-k nearest docs and see if this retrieval is "successful". We perform this on all items in the dataset and calculate the proportion of successful retrievals in all the trials, which is denoted as `acc`. Take the following as an example: assume that we set `k=5` and it comes to `acc=0.8` after retrieval, then it means 80% queries are able to find their ground-truth doc in their top-5 retrieval results.
 
 You can see that each `k` value would correspond to an `acc` value, so we would set different `k` values and calculate their corresponding `acc`, and we can draw an `acc ~ top-k` curve based on several specified `k` values. Here is an example graph, where the encoder is `bert-base-uncased` and the subset is `en`:
-<img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/bert_en/eval_results.jpg'>
+<img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/bert_en/eval_results.jpg'>
 The blue line in the graph is `baseline`, calculated with the following formula:
 
 $$
@@ -118,13 +118,13 @@ Take `bert-base-uncased` as an example encoder:
   python retrieval_eval.py --name bert_en
   ```
   The result graph would be saved to: `./results/bert_en/eval_results.jpg`
-  <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/bert_en/eval_results.jpg'>
+  <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/bert_en/eval_results.jpg'>
   You could also specify the `--verbose` argument to get a more detailed graph and a brief report:
   ```bash
   python retrieval_eval.py --name bert_en --verbose
   ```
   The result graph would be saved to: `./results/bert_en/eval_results_verbose.jpg`
-  <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/bert_en/eval_results_verbose.jpg'>
+  <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/bert_en/eval_results_verbose.jpg'>
   The report would be saved to: `./results/bert_en/eval_report.md`
   ```
   # Evaluation report
@@ -140,20 +140,20 @@ More detailed instructions would be implemented in the future.
 Some evaluation results are presented here:
 - model: `bert-base-uncased`
   - subset: `en`
-    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/bert_en/eval_results_verbose.jpg'>
+    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/bert_en/eval_results_verbose.jpg'>
   - subset: `zh_cn`
-    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/bert_zh_cn/eval_results_verbose.jpg'>
+    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/bert_zh_cn/eval_results_verbose.jpg'>
   - subset: `zh_tw`
-    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/bert_zh_tw/eval_results_verbose.jpg'>
+    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/bert_zh_tw/eval_results_verbose.jpg'>
   (Here we can see `bert-base-uncased` performs poorly on Chinese!)
 
 - model: `baichuan-inc/Baichuan2-7B-Chat`
   - subset: `en`
-    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/baichuan-7b_en/eval_results_verbose.jpg'>
+    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/baichuan-7b_en/eval_results_verbose.jpg'>
   - subset: `zh_cn`
-    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/baichuan-7b_zh_cn/eval_results_verbose.jpg'>
+    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/baichuan-7b_zh_cn/eval_results_verbose.jpg'>
   - subset: `zh_tw`
-    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/baichuan-7b_zh_tw/eval_results_verbose.jpg'>
+    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/baichuan-7b_zh_tw/eval_results_verbose.jpg'>
     
 
 
