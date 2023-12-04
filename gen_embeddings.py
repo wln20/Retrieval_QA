@@ -18,22 +18,20 @@ logging.basicConfig(format='%(asctime)s - %(message)s',
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', default='bert-base-uncased', help='Name of path to the model that acts as the retrieval encoder.')
-    parser.add_argument('--task', default='retrieve_only', choices=['retrieve_only', 'qa'], help='Generate the embeddings for doc&query or QA prompts.')
     parser.add_argument('--load_raw', action='store_true', help='Load the local .jsonl dataset file if specified.')
     parser.add_argument('--subset', default='en', choices=['en', 'zh_cn', 'zh_tw', 'ja', 'es', 'de', 'ru'])
-    parser.add_argument('--save_name', default='bert', help='The generated embeddings would be saved to `./[task]_embeddings/[save_name]`')
+    parser.add_argument('--save_name', default='bert', help='The generated embeddings would be saved to `./embeddings/[save_name]_[subset]`')
     parser.add_argument('--additional_info', default='', help='You could add some additional information, and let it be saved to `info.json`')
     args = parser.parse_args()
     print(args)
 
-    save_path = os.path.join('./embeddings/retrieval_embeddings' if args.task=='retrieve_only' else './embeddings/qa_embeddings', args.save_name + f'_{args.subset}')
+    save_path = os.path.join('./embeddings', args.save_name + f'_{args.subset}')
     print(f'The generated embeddings would be saved to {save_path}')
 
     os.makedirs(save_path, exist_ok=True)
     # 2 binary files would be saved to `save_path`, containing the embeddings of docs and queries
     doc_save_path = os.path.join(save_path, 'doc_embeddings.npy')
     query_save_path = os.path.join(save_path, 'query_embeddings.npy')
-
     info_save_path = os.path.join(save_path, 'info.json')
     
     # construct encoder model
@@ -56,7 +54,7 @@ if __name__ == '__main__':
     print('loading dataset ...')
     if args.load_raw:
         raw_path = f'./raw_data/{args.subset}/data_{args.subset}.jsonl'
-        docs, queries = load_raw_data(raw_path)
+        _, docs, queries, _, _ = load_raw_data(raw_path)
     else:
         dataset = load_dataset('lnwang/retrieval_qa', name=args.subset)
         docs, queries = dataset['test']['doc'], dataset['test']['query']
@@ -72,7 +70,6 @@ if __name__ == '__main__':
 
     info = {
         'model': args.model,
-        'task': args.task,
         'embed_dim': embed_dim,
         'subset': args.subset,
         'num_items': num_items,
@@ -82,17 +79,4 @@ if __name__ == '__main__':
         json.dump(info, f)
     
     print('embeddings saved.')
-
-
-
-
-
-
-
-
-
-
-
-
-
 

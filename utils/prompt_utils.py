@@ -14,8 +14,7 @@ query_templates = {
         C. {}
         D. {}
 
-        ### Answer: 
-    """,
+        The answer is:""",
 
     'zh_cn': """
         ### 任务：利用你的知识和给定的事实（如果提供）来正确确定问题的答案。\
@@ -32,8 +31,7 @@ query_templates = {
         C. {}
         D. {}
 
-        ### 回答：
-    """,   
+        答案是：""",   
 
     'zh_tw': """
         ### 任務：利用你的知識和給定的事實（如果提供）來正確確定問題的答案。\
@@ -50,8 +48,7 @@ query_templates = {
         C. {}
         D. {}
 
-        ### 回答：
-    """,
+        答案是：""",
 
     'ja': """
         ### タスク：知識と裏付けとなる事実 (提供されている場合) を使用して、質問の答えを正しく判断します。\
@@ -127,7 +124,7 @@ query_templates = {
 }
 
 
-def format_query_prompt(example, lang='en', mode='without_doc', retrieved_docs=[]):   
+def format_query_prompt(example, subset='en', mode='with_correct_doc', retrieved_docs=[]):   
     """
     `mode`: choose from 'without_doc', 'with_correct_doc', 'with_retrieved_docs'
     if mode == 'with_retrieved_docs', then `retrieved_docs` should be a list of retrieved docs.
@@ -139,10 +136,10 @@ def format_query_prompt(example, lang='en', mode='without_doc', retrieved_docs=[
     elif mode == 'with_retrieved_docs':
         docs = []
         for j in range(len(retrieved_docs)):
-            docs[j] = f"{j}. {retrieved_docs[j]}"  # 1. doc1
+            docs.append(f"{j}. {retrieved_docs[j]}")  # 1. doc1
         doc = '\n' + '\n'.join(docs)
 
-    query = query_templates[lang].format(
+    query = query_templates[subset].format(
         doc,
         example['query'],
         example['choice'][0][1],    # A's content
