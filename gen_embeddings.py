@@ -36,7 +36,7 @@ if __name__ == '__main__':
     
     # construct encoder model
     print('Constructing encoder model ...')
-    model_config = AutoConfig.from_pretrained(args.model)
+    model_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
     arch = model_config.architectures 
     if arch:
         encoder = encoder_list.get(arch[0])(args.model)

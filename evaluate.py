@@ -20,7 +20,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--encoder_name', default='bert_en', help='Name of the directory containing saved embeddings')
     parser.add_argument('--task', default='retrieve_only', choices=['retrieve_only', 'qa'])
-    parser.add_argument('--subset', default='en', choices=['en', 'zh_cn', 'zh_tw', 'ja', 'es', 'de', 'ru'])
+    
     # for retrieval_only
     parser.add_argument('--num_samples', default=30, help='The number of sample points of top-k')
     parser.add_argument('--verbose', action='store_true', help='Whether to mark some key points in the result graph')
@@ -29,7 +29,9 @@ if __name__ == '__main__':
     parser.add_argument('--lm_model', default='lmsys/vicuna-7b-v1.3', help='The LM model to be tested with QA task')
     parser.add_argument('--load_raw', action='store_true', help='Load the local .jsonl dataset file if specified.')
     parser.add_argument('--mode', default='with_correct_doc', choices=['without_doc', 'with_correct_doc', 'with_retrieved_docs'], help='The mode of constructing prompt')
-    parser.add_argument('--top_k', default=5, help='If use retrieved docs to construct prompt, how many retrieved docs should be used')
+    # specially for retrieval-augmented qa
+    parser.add_argument('--subset', default='en', choices=['en', 'zh_cn', 'zh_tw', 'ja', 'es', 'de', 'ru'])
+    parser.add_argument('--top_k', default=5)
     args = parser.parse_args()
 
     print(f"================ TASK: {args.task} ================")

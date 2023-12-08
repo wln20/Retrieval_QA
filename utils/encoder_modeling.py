@@ -42,9 +42,18 @@ class BaichuanEncoder(BaseEncoder):
 class LlamaEncoder(BaseEncoder):
     def __init__(self, model) -> None:
         super().__init__(model)
-    
+        self.model = AutoModelForCausalLM.from_pretrained(model, device_map="auto", torch_dtype=torch.float16, trust_remote_code=True)
+        self.tokenizer = AutoTokenizer.from_pretrained(model, use_fast=False, trust_remote_code=True)
+
     def encode(self, raw_txt):
-        pass
+        with torch.no_grad():
+            print('tokenizing ...')
+            docs_tokens = self.tokenizer(raw_txt, return_tensors='pt', padding=True).to(self.model.device)
+            print('encoding ...')
+            encoded_docs = torch.mean(self.model(**docs_tokens, output_hidden_states=True).hidden_states[-1], dim=1).cpu().numpy().astype('float32')
+        self.num_items = encoded_docs.shape[0]
+        self.embed_dim = encoded_docs.shape[1]
+        return (encoded_docs, self.num_items, self.embed_dim)     
 
 class SBertEncoder(BaseEncoder):
     def __init__(self, model) -> None:

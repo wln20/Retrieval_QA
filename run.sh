@@ -1,9 +1,31 @@
-# python gen_embeddings.py --model bert-base-multilingual-cased --subset en --save_name bert-multilingual
-# python gen_embeddings.py --model bert-base-multilingual-cased --subset zh_cn --save_name bert-multilingual
-# python gen_embeddings.py --model bert-base-multilingual-cased --subset zh_tw --save_name bert-multilingual
-python gen_embeddings.py --model bert-base-uncased --load_raw --subset ja --save_name bert
-# python retrieval_eval.py --name bert-multilingual_en --verbose
-# python retrieval_eval.py --name bert-multilingual_zh_cn --verbose
-# python retrieval_eval.py --name bert-multilingual_zh_tw --verbose
-python retrieval_eval.py --name bert_ja --verbose
+# python gen_embeddings.py --model lmsys/vicuna-7b-v1.3 --subset en --save_name vicuna-7b-v1.3
+# python gen_embeddings.py --model lmsys/vicuna-7b-v1.3 --subset zh_cn --save_name vicuna-7b-v1.3
+# python gen_embeddings.py --model lmsys/vicuna-7b-v1.3 --subset zh_tw --save_name vicuna-7b-v1.3
+# python gen_embeddings.py --model lmsys/vicuna-7b-v1.3 --subset ja --save_name vicuna-7b-v1.3
+# python gen_embeddings.py --model lmsys/vicuna-7b-v1.3 --subset es --save_name vicuna-7b-v1.3
+# python gen_embeddings.py --model lmsys/vicuna-7b-v1.3 --subset de --save_name vicuna-7b-v1.3
+# python gen_embeddings.py --model lmsys/vicuna-7b-v1.3 --subset ru --save_name vicuna-7b-v1.3
 
+# python evaluate.py --encoder_name vicuna-7b-v1.3_en --task retrieve_only --verbose
+# python evaluate.py --encoder_name vicuna-7b-v1.3_zh_cn --task retrieve_only --verbose
+# python evaluate.py --encoder_name vicuna-7b-v1.3_zh_tw --task retrieve_only --verbose
+# python evaluate.py --encoder_name vicuna-7b-v1.3_ja --task retrieve_only --verbose
+# python evaluate.py --encoder_name vicuna-7b-v1.3_es --task retrieve_only --verbose
+# python evaluate.py --encoder_name vicuna-7b-v1.3_de --task retrieve_only --verbose
+# python evaluate.py --encoder_name vicuna-7b-v1.3_ru --task retrieve_only --verbose
+
+# python gen_embeddings.py --model /mnt/bn/yukunfeng-nasdrive/wln/models/baichuan2-7B-chat --subset en --save_name baichuan2-7b
+# python gen_embeddings.py --model /mnt/bn/yukunfeng-nasdrive/wln/models/baichuan2-7B-chat --subset zh_cn --save_name baichuan2-7b
+# python gen_embeddings.py --model /mnt/bn/yukunfeng-nasdrive/wln/models/baichuan2-7B-chat --subset zh_tw --save_name baichuan2-7b
+python gen_embeddings.py --model /mnt/bn/yukunfeng-nasdrive/wln/models/baichuan2-7B-chat --subset ja --save_name baichuan2-7b
+python gen_embeddings.py --model /mnt/bn/yukunfeng-nasdrive/wln/models/baichuan2-7B-chat --subset es --save_name baichuan2-7b
+python gen_embeddings.py --model /mnt/bn/yukunfeng-nasdrive/wln/models/baichuan2-7B-chat --subset de --save_name baichuan2-7b
+python gen_embeddings.py --model /mnt/bn/yukunfeng-nasdrive/wln/models/baichuan2-7B-chat --subset ru --save_name baichuan2-7b
+
+python evaluate.py --encoder_name baichuan2-7b_en --task retrieve_only --verbose
+python evaluate.py --encoder_name baichuan2-7b_zh_cn --task retrieve_only --verbose
+python evaluate.py --encoder_name baichuan2-7b_zh_tw --task retrieve_only --verbose
+python evaluate.py --encoder_name baichuan2-7b_ja --task retrieve_only --verbose
+python evaluate.py --encoder_name baichuan2-7b_es --task retrieve_only --verbose
+python evaluate.py --encoder_name baichuan2-7b_de --task retrieve_only --verbose
+python evaluate.py --encoder_name baichuan2-7b_ru --task retrieve_only --verbose
