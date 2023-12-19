@@ -147,11 +147,11 @@ Some evaluation results are presented here:
 
 - model: `baichuan-inc/Baichuan2-7B-Chat`
   - subset: `en`
-    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/baichuan-7b_en/eval_results_verbose.jpg'>
+    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/baichuan2-7b_en/eval_results_verbose.jpg'>
   - subset: `zh_cn`
-    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/baichuan-7b_zh_cn/eval_results_verbose.jpg'>
+    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/baichuan2-7b_zh_cn/eval_results_verbose.jpg'>
   - subset: `zh_tw`
-    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/baichuan-7b_zh_tw/eval_results_verbose.jpg'>
+    <img src='https://raw.githubusercontent.com/wln20/Retrieval_QA/master/results/retrieval_results/baichuan2-7b_zh_tw/eval_results_verbose.jpg'>
     
 
 
